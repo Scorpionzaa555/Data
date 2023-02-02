@@ -65,6 +65,7 @@ class SinglyLinkedList:
                 pos = pos.next
         return
 
+    """
     def delete(self, data):
         if self.head == None:
             print("Cannot delete,", data, "dose not exist.")
@@ -77,6 +78,30 @@ class SinglyLinkedList:
             pos.next = pos.next.next
         self.count -= 1
         return
+    """
+    
+    def delete(self, data):
+        pos = self.head
+        prev_node = self.head
+        count = 0
+        if self.head.name == data:
+            self.head = pos.next
+            del pos
+
+        else:
+            while pos != None:
+                if pos.name == data:
+                    break
+                pos = pos.next
+                count += 1
+            if pos == None:
+                print("Cannot delete,", data, "does not exist.")
+            else:
+                for _ in range(count-1):
+                    prev_node = prev_node.next
+                prev_node.next = pos.next
+                del pos
+                self.count -= 1
 
 mylist = SinglyLinkedList()
 pNew = DataNode("John")
@@ -92,7 +117,7 @@ mylist.insertFront("Kim")
 mylist.traverse()
 mylist.insertLast("Pao")
 mylist.traverse()
-mylist.delete("Pao")
+mylist.delete("Kim")
 mylist.traverse()
 mylist.insertBefore("Tony", "Eik")
 mylist.traverse()
