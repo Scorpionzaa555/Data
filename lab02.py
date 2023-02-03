@@ -80,24 +80,22 @@ class SinglyLinkedList:
         return
     """
     
-    """
-    fewpz
-    def delete(self, node):
-        #"" Delete a node with a given name ""
-        current = self.head
-        if current.name == node:
+    
+    def delete(self, data):
+        pos = self.head
+        if pos.name == node:
             self.head = self.head.next
             self.count -= 1
             return
-        while current.next != None:
-            if current.next.name == node:
-                current.next = current.next.next
+        while pos.next != None:
+            if pos.next.name == data:
+                pos.next = pos.next.next
                 self.count -= 1
                 return
-            current = current.next
-        print("Cannot insert, {} does not exist.".format(node))
-    """
+            pos = pos.next
+        print("Cannot delete,", data, "does not exist.")
     
+    """
     def delete(self, data):
         pos = self.head
         prev_node = self.head
@@ -120,6 +118,7 @@ class SinglyLinkedList:
                 prev_node.next = pos.next
                 del pos
                 self.count -= 1
+    """
 
 mylist = SinglyLinkedList()
 pNew = DataNode("John")
