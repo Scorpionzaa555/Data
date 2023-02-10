@@ -21,18 +21,21 @@ class ArrayStack:
     def printStack(self):
         print(self.data)
 
-    def is_parentheses_matching(self, expression):
-        for i in expression:
-            if i == "(":
-                self.push(i)
-            elif i == ")":
-                self.pop()
+def is_parentheses_matching(expression):
+    st3 = ArrayStack()
+    for i in expression:
+        if i == "(":
+            st3.push(i)
+        elif i == ")":
+            st3.pop()
 
-        if self.data != []:
-            print("Parentheses in", expression, "are unmatched")
-        return self.is_empty()
+    if st3.is_empty():
+        return st3.is_empty()
+    else:
+        print("Parentheses in", expression, "are unmatched")
+        return st3.is_empty()
 
 pharsing = ArrayStack()
 str = "(((A-B)*C)"
-result = pharsing.is_parentheses_matching(str)
+result = is_parentheses_matching(str)
 print(result)
