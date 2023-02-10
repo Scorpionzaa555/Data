@@ -32,10 +32,20 @@ class ArrayStack:
         print(self.data)
 
 def copyStack(stack1, stack2):
+    st3 = ArrayStack()
+    x = stack1.size()
+    #for _ in range(stack2.size()):
     if not stack2.is_empty():
         stack2.pop()
-
-    
+    for i in range(3):
+    #while stack1 != None:
+        val = stack1.pop()
+        st3.push(val)
+    #st3.printStack()
+    for i in range(3):
+        val = st3.pop()
+        stack1.push(val)
+        stack2.push(val)
 
 s1 = ArrayStack()
 s1.push(10)
