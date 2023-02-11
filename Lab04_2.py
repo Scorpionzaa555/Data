@@ -3,7 +3,7 @@ class ArrayStack:
         self.data = []
 
     def size(self):
-        print(len(self.data))
+        return len(self.data)
 
     def is_empty(self):
         if self.data == []:
@@ -34,15 +34,15 @@ class ArrayStack:
 def copyStack(stack1, stack2):
     st3 = ArrayStack()
     x = stack1.size()
-    #for _ in range(stack2.size()):
-    if not stack2.is_empty():
-        stack2.pop()
-    for i in range(3):
-    #while stack1 != None:
+    y = stack2.size()
+    for _ in range(y):
+        if not stack2.is_empty():
+            stack2.pop()
+    for _ in range(x):
         val = stack1.pop()
         st3.push(val)
     #st3.printStack()
-    for i in range(3):
+    for _ in range(x):
         val = st3.pop()
         stack1.push(val)
         stack2.push(val)
@@ -56,4 +56,3 @@ s2.push(15)
 copyStack(s1, s2)
 s1.printStack()
 s2.printStack()
-        
