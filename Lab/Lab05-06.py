@@ -9,7 +9,7 @@ class BST:
         self.root = None
 
     def is_empty(self):
-        if self.root == No:
+        if self.root == None:
             return True
         else:
             return False
@@ -41,7 +41,7 @@ class BST:
             #        prev = start
             #        start.right = pNew
             #prev.right = pNew
-        return
+        #return
 
     # def delete(self, data) :
     #     # deletedatafromBST
@@ -53,9 +53,10 @@ class BST:
             self.preorder(root.right)
 
     def inorder(self, root) :
-        self.inorder(root.left)
-        print("->",root.data,end=" ")
-        self.inorder(root.right)
+        if (root != None):
+            self.inorder(root.left)
+            print("->",root.data,end=" ")
+            self.inorder(root.right)
 
     def postorder(self, root) :
         if(root != None):
@@ -67,12 +68,12 @@ class BST:
         if self.root == None:
             print("Empty")
         else:
-            print("preorder",end='')
-            self.preorder()
-            print("inorder",end='')
-            self.inorder()
-            print("postorder",end='')
-            self.postorder()
+            print("Preorder",end='')
+            self.preorder(self.root)
+            print("\nInorder",end='')
+            self.inorder(self.root)
+            print("\nPostorder",end='')
+            self.postorder(self.root)
 
     def findMin(self, num) :
         while num.left != None:
