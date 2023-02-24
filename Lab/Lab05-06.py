@@ -21,7 +21,7 @@ class BST:
         if self.is_empty():
             self.root = pNew
         else:
-            while True:
+            while start:
                 if data < start.data:
                     if start.left == None:
                         start.left = pNew
@@ -74,16 +74,22 @@ class BST:
             print("postorder",end='')
             self.postorder()
 
-    # def findMin(self) :
-    #     # return minimum value
+    def findMin(self, num) :
+        while num.left != None:
+            num = num.left
+        return num.data
 
-    # def findMax(self) :
-    #     # return maximum value
+    def findMax(self, num) :
+        while num.right != None:
+            num = num.right
+        return num.data
 
 myBST= BST()
 myBST.insert(14)
-#myBST.insert(23)
-#myBST.insert(7)
-#myBST.insert(10)
-#myBST.insert(33)
-#myBST.traverse() 
+myBST.insert(23)
+myBST.insert(7)
+myBST.insert(10)
+myBST.insert(33)
+myBST.traverse()
+print("\nMin:", myBST.findMin(myBST.root))
+print("Max:", myBST.findMax(myBST.root))
