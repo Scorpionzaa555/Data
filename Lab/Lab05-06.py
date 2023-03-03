@@ -43,8 +43,35 @@ class BST:
             #prev.right = pNew
         #return
 
-    # def delete(self, data) :
-    #     # deletedatafromBST
+    def delete(self, data):
+        if self.is_empty():
+            print("You've got no node T-T")
+        else:
+            start = self.root
+            prev = None
+            while start.data != data:
+                prev = start
+                if data < start.data:
+                    start = start.left
+                else:
+                    start = start.right
+            if start.left == None and start.right == None:
+                if data < prev.data:
+                    prev.left = None
+                else:
+                    prev.right = None
+            elif start.left == None:
+                if data < prev.data:
+                    prev.left = start.right
+                else:
+                    prev.right = start.right
+            elif start.right == None:
+                if data < prev.data:
+                    prev.left = start.left
+                else:
+                    prev.right = start.left
+            # elif start.right != None and start.left != None:
+            #     if data < prev.data:
 
     def preorder(self, root) :
         if (root != None):
