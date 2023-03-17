@@ -85,7 +85,7 @@ class BST:
     #     return data
     
     def delete(self, data) :
-        print(data, end=" ")
+        #print(data, end=" ")
         if self.is_empty():
             print("Cannot delete Empty tree")
             return
@@ -105,7 +105,7 @@ class BST:
                     start = start.right
                 
             if start.left == None and start.right == None: #ไม่มีลูก
-                print("No Child?")
+                #print("No Child?")
                 if prev == None:#ถ้าลบ root
                     self.root = None
                     return data
@@ -115,7 +115,7 @@ class BST:
                     prev.left = None
 
             elif start.left != None and start.right != None: #มีลูก 2 ตัว
-                print("2 Child?")
+                #print("2 Child?")
                 prev = start
                 start = start.left #ขยับไปดูต้นไม้ซ้าย
                 if start.right != None: #ไปล้วงเอาตัวขวาสุดของต้นไม้มา (ถ้ามี) เอาค่ามันมาแทนที่แล้วลบตัวขวาสุดนั้น
@@ -139,7 +139,7 @@ class BST:
                             bfDelNode.right = start
 
             else: #นอกจากนี้(มีลูก 1 ตัว) (หรือมากกว่า แต่ไม่มากกว่าหรอก)
-                print("1 Child?")
+                #print("1 Child?")
                 if start.left != None: #ถ้าลูกอยู่ซ้าย --------->(ก็อปจากอัน 2 ลูกมาเลย)<-------------
                     prev = start
                     start = start.left #ขยับไปดูต้นไม้ซ้าย
