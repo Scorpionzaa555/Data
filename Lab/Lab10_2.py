@@ -17,7 +17,20 @@ class Item:
         return self.price / self.weight
 
 def knapsack(amount, itemList):
-    
+    itemList.sort(key=lambda x: x.getCost(), reverse=True)
+    result = []
+    total_value = 0
+    remaining_weight = amount
+    for item in itemList:
+        if item.getWeight() <= remaining_weight:
+            result.append(item)
+            total_value += item.getPrice()
+            remaining_weight -= item.getWeight()
+    print(f"Knapsack Size: {amount} kg")
+    print("=" * 30)
+    for item in result:
+        print(f"{item.getName()} -> {item.getWeight()} kg -> {item.getPrice()} THB")
+    print(f"Total: {total_value} THB")
 
 def main():
     item1 = Item('stereo', 3000, 3)
